@@ -28,7 +28,7 @@ module.exports = function(options){
 
 	return router
 		.use(staticBaseUrl, express.static(releasesPath))
-		.get('/update/darwin/:version', function(req, res, next){
+		.get(['/update/darwin/:version', '/update/darwin_x64/:version'], function(req, res, next){
 
 			var updateOptions = {
 				platform: 'darwin',
