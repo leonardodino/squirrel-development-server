@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$1")"
+
+echo 'creating mock releases...'
+set -x
+mkdir -p 'releases/0.0.1' 'releases/0.0.2' 'releases/0.0.3-develop'
+touch 'releases/0.0.2/app-win32-full.nupkg' 'releases/0.0.3-develop/app-win32-full.nupkg' 'releases/0.0.3-develop/app-darwin.zip'
+set +x
+ls -1 releases/*
+echo ''
+echo 'done'

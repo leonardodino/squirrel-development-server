@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+var pkg     = require('../package.json')
+var program = require('commander')
+var express = require('express')
+var server  = require('../middleware')
+var utils   = require('../lib/cli-utils')
+var app     = express()
+var version = pkg.version
+ 
+program
+  .version(version)
+  .usage('[options] <directory>')
+  .option('-p, --port <port>', 'Port to listen to', parseInt)
+  .parse(process.argv)
+ 
+var RELEASES_DIR = utils.resolvePath(program.args[0]) || process.cwd()
+var PORT = program.port || 6363
+
+console.log(RELEASES_DIR)
+app
+	.use(server({
+		log: true,
+		releasesPath: RELEASES_DIR,
+		localPort: PORT,
+	}))
+	.listen(PORT, function(){
+		utils.printCli(pkg, [
+			['path', utils.getRelativePath(RELEASES_DIR)],
+			['port', PORT],
+			['server', 'listening'],
+		])
+	})

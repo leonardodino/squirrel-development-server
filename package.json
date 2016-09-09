@@ -1,0 +1,21 @@
+{
+  "name": "squirrel-development-server",
+  "version": "0.0.1",
+  "description": "squirrel update server for local development and testing",
+  "main": "index.js",
+  "bin": "bin/squirrel-development-server",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leonardo Dino",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.0.1",
+    "commander": "^2.9.0",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "semver": "^5.3.0",
+    "serve-static": "^1.11.1"
+  }
+}
