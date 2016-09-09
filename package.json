@@ -1,6 +1,6 @@
 {
   "name": "squirrel-development-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "squirrel update server for local development and testing",
   "main": "index.js",
   "bin": "bin/squirrel-development-server",
